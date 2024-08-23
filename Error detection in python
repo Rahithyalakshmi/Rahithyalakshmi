@@ -1,0 +1,16 @@
+def even_parity_bit(data):
+    ones_count = data.count('1')
+    return '0' if ones_count % 2 == 0 else '1'
+
+def check_even_parity(data_with_parity):
+    data, parity = data_with_parity[:-1], data_with_parity[-1]
+    calculated_parity = even_parity_bit(data)
+    return calculated_parity == parity
+
+# Example usage
+data = "1011001"
+parity = even_parity_bit(data)
+data_with_parity = data + parity
+
+print(f"Data with parity: {data_with_parity}")
+print(f"Parity check: {'Valid' if check_even_parity(data_with_parity) else 'Invalid'}")
